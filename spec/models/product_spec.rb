@@ -11,7 +11,7 @@ RSpec.describe Product, type: :model do
 
   it 'validates lowercase' do
     category = Category.new(title: 'category');
-    product = Product.new(title: 'TITLE',price: 12, description:'<html>a</hmtl>')
+    product = Product.new(title: 'TITLE',price: 12, description:'aabcdassd')
     product.category = category
     product.save
     expect(product.title).to eq('title')
