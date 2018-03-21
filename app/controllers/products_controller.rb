@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :destroy]
-  before_action :assign_params, only: [:create]
+  before_action :set_product, only: [:show, :destroy, :update, :edit]
+  before_action :assign_params, only: [:create, :update]
   def index
     @products = Product.all
   end
@@ -16,6 +16,13 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(@product_params)
     @product.save
+  end
+
+  def update
+    @product.update(@product_params)
+  end
+
+  def edit
   end
 
   def destroy

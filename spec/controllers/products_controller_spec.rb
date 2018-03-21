@@ -54,6 +54,16 @@ RSpec.describe ProductsController, type: :controller do
     end
   end
 
+  describe "PUT 'update/:id'" do
+    let! (:product) { create(:product) }
+    it "product to be updated" do
+      product_params = { :title => "new title", :description => "new description" }
+
+      put :update, params: { :id => product.id, :product => product_params }
+      response.should be_successful
+    end
+  end
+
 
 
 end
