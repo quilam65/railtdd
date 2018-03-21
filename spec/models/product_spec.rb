@@ -12,7 +12,7 @@ RSpec.describe Product, type: :model do
     expect(product_title.title).to eq('title')
   end
 
-  let! (:product_shorter) { create(:product, title: 'abdad', description: 'abcd')}
+  let! (:product_shorter) { create(:product, title: 'abdad', description: 'abcd') }
   it 'title is shorter than description' do
     expect(product_shorter.errors.messages).to include(description: ['can\'t be shorter than title'])
   end

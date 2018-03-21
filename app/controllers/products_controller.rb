@@ -15,11 +15,16 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(@product_params)
-    @product.save
+    if @product.save
+      redirect_to @product
+    else
+      render :new
+    end
   end
 
   def update
     @product.update(@product_params)
+    redirect_to @product
   end
 
   def edit
@@ -27,6 +32,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
+    redirect_to products_path
   end
 
 
