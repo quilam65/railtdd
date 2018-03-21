@@ -47,6 +47,7 @@ RSpec.describe ProductsController, type: :controller do
     context 'fail' do
       it "creates a new product" do
         post :create, params: { product: FactoryBot.attributes_for(:product, price: 0) }
+        byebug
         expect(response).to render_template :new
       end
     end
