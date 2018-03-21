@@ -28,20 +28,29 @@ RSpec.describe ProductsController, type: :controller do
     end
   end
 
-  # describe '#edit' do
-  #   let! (:product) { create(:product) }
-  #   it "edit product" do
-  #     get :edit, params: { id: product.id }
-  #     # byebug
-  #     expect(assigns(:product)).to eq product
-  #   end
-  # end
+  describe '#edit' do
+    let! (:product) { create(:product) }
+    it "edit product" do
+      get :edit, params: { id: product.id }
+      # byebug
+      expect(assigns(:product)).to eq product
+    end
+  end
 
   describe '#create' do
     it "creates a new product" do
       expect{
         post :create, params: { product: FactoryBot.attributes_for(:product) }
-      }.to change(Product,:count).by(1)
+      }.to change(Product, :count).by(1)
+    end
+  end
+
+  describe '#delete' do
+    let! (:product) { create(:product) }
+    it ' delete a product' do
+      expect{
+        delete :destroy, params: { id: product.id }
+      }.to change(Product, :count).by(-1)
     end
   end
 
