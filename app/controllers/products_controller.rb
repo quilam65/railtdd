@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(@product_params)
-    if @product.save!
+    if @product.save
       redirect_to @product
     else
       render :new
@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product.update(@product_params)
+    @product.update!(@product_params)
     redirect_to @product
   end
 
