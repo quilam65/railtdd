@@ -44,7 +44,7 @@ describe 'Product can CRUD', type: :feature do
       visit '/products'
       expect(page).to have_content product.title
       click_on 'Delete'
-
+      click_on 'OK'
       expect(page).to have_content 'Delete success!'
     end
   end
