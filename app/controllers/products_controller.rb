@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :destroy, :update, :edit]
   before_action :assign_params, only: [:create, :update]
   def index
-    @products = Product.all
+    @products = Product.order('id desc').all
   end
 
   def show
@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(@product_params)
-    if @product.save
+    if @product.save!
       redirect_to @product
     else
       render :new
@@ -33,6 +33,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     redirect_to products_path
+    flash[:notice] = "Delete success!"
   end
 
 

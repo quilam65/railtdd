@@ -47,7 +47,6 @@ RSpec.describe ProductsController, type: :controller do
     context 'fail' do
       it "creates a new product" do
         post :create, params: { product: FactoryBot.attributes_for(:product, price: 0) }
-        byebug
         expect(response).to render_template :new
       end
     end
@@ -68,10 +67,8 @@ RSpec.describe ProductsController, type: :controller do
     it "product to be updated" do
       product_params = { :title => "new title", :description => "new description" }
       put :update, params: { :id => product.id, :product => product_params }
-      response.should do
-        be_successful
-        redirect_to assigns(:product)
-      end
+      expect(assigns(:product).title).to eq(product_params(:title))
+      response.should redirect_to assigns(:product)
     end
   end
 

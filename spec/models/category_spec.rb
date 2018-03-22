@@ -6,5 +6,6 @@ RSpec.describe Category, type: :model do
   #   product.validate
   #   expect(product.errors.messages).to include(title: ["can't be blank"])
   # end
+  it {should validate_presence_of(:title)}
   it { should have_many(:products) }
 end

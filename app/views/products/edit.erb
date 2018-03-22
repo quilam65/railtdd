@@ -1,0 +1,9 @@
+<h1>Edit a product </h1>
+<%= form_tag(@product, method: 'put') do %>
+  <%= label_tag(:title, 'Title') %>
+  <%= text_field(:product, :title) %>
+  <%= text_field(:product, :price) %>
+  <%= text_field(:product, :description) %>
+  <%= text_field(:product, :category_id) %>
+  <%= submit_tag('Submit') %>
+<% end %>
