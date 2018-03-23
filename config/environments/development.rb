@@ -15,7 +15,7 @@ Rails.application.configure do
       port: 587,
       domain:  'domain.com',
       user_name: 'anhqui1995@gmail.com',
-      password:  'Arduinobegin',
+      password:  '',
       authentication: 'plain',
       enable_starttls_auto: true
     }

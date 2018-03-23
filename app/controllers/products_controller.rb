@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(@product_params)
     if @product.save!
-      # ApplicationMailer.create_product(@product).deliver_now
+      ApplicationMailer.create_product(@product).deliver_now
       redirect_to @product, notice: I18n.t('product.alert.create.success')
     else
       flash[:alert] = I18n.t('product.alert.create.error')
