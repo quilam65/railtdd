@@ -34,12 +34,15 @@ vn:
   home: 'Trang chủ'
   product:
     alert:
+      edit:
+        title: 'Chỉnh sửa sản phẩm'
       destroy:
         success: 'Xoá thành công'
       update:
         error: 'Không thể cập nhật được sản phẩm'
         success: 'Cập nhật thành công sản phẩm'
       create:
+        title: 'Tạo mới sản phẩm'
         error: 'Không thể tạo được sản phẩm'
         success: 'Tạo thành công sản phẩm'
 

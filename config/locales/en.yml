@@ -31,4 +31,22 @@
 
 en:
   hello: "Hello world"
-  create: 
+  home: 'Home'
+  product:
+    alert:
+      edit:
+        title: 'Edit a product'
+      destroy:
+        success: 'Delete success!'
+      update:
+        error: 'Fail update product'
+        success: 'Update a product success'
+      create:
+        title: 'Create a product'
+        error: 'Fail create product'
+        success: 'Create a product success'
+
+    index:
+      delete: 'Delete'
+      confirm: 'Are you sure'
+      titleCreate: 'Create a product'
