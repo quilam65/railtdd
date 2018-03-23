@@ -5,5 +5,7 @@
   <%= text_field(:product, :price) %>
   <%= text_field(:product, :description) %>
   <%= text_field(:product, :category_id) %>
+  <%= file_field(:product, :image) %>
+  <%= image_tag @product.image_url.to_s %>
   <%= submit_tag('Submit') %>
 <% end %>

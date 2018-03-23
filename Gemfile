@@ -28,7 +28,11 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'awesome_print'
 gem 'rails_admin', '~> 1.3'
+gem 'rails_admin_rollincode', '~> 1.0'
 gem 'devise'
+gem 'carrierwave'
+gem "mini_magick"
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

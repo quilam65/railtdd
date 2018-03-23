@@ -5,6 +5,8 @@ class Product < ApplicationRecord
   validates :price, numericality: { greater_than: 0 }
   belongs_to :category
 
+  mount_uploader :image, ImageUploader
+
   def strip_html_from_description
     self.description =
       ActionView::Base.full_sanitizer.sanitize(self.description)
