@@ -1,8 +1,8 @@
-<%= link_to('Create a product',new_product_path) %>
+<%= link_to(I18n.t('product.index.titleCreate'),new_product_path) %>
 <% @products.each do |f| %>
 <div class="card" style="width: 18rem;">
   <p>
     <%= link_to(f.title,edit_product_path(f.id)) %>
-    <%= link_to('Delete',product_path(f.id), method: :delete, data: {confirm: 'Are you sure'}) %>
+    <%= link_to(I18n.t('product.index.delete'),product_path(f.id), method: :delete, data: {confirm: I18n.t('product.index.confirm')}) %>
   </p>
 <% end %>

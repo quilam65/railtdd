@@ -29,6 +29,21 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+vn:
   hello: "Hello world"
-  create: 
+  home: 'Trang chủ'
+  product:
+    alert:
+      destroy:
+        success: 'Xoá thành công'
+      update:
+        error: 'Không thể cập nhật được sản phẩm'
+        success: 'Cập nhật thành công sản phẩm'
+      create:
+        error: 'Không thể tạo được sản phẩm'
+        success: 'Tạo thành công sản phẩm'
+
+    index:
+      delete: 'Xoá'
+      confirm: 'Bạn có chắc chắn?'
+      titleCreate: 'Tạo mới sản phẩm'

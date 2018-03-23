@@ -1,10 +1,9 @@
 <h1>Create a product </h1>
 <%= form_tag(@product, method: 'post', :multipart => true) do %>
-  <%= label_tag(:title, 'Title') %>
   <%= text_field(:product, :title) %>
   <%= text_field(:product, :price) %>
   <%= text_field(:product, :description) %>
   <%= text_field(:product, :category_id) %>
   <%= file_field(:product, :image) %>
-  <%= submit_tag('Create a product') %>
+  <%= submit_tag(I18n.t('product.index.titleCreate')) %>
 <% end %>

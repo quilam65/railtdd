@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :destroy, :update, :edit]
   before_action :assign_params, only: [:create, :update]
-  before_action :authenticate_user!, only: [:edit, :create, :update]
+  before_action :authenticate_user!, only: [:edit, :create]
   def index
     @products = Product.order('id desc').all
   end
@@ -17,16 +17,21 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(@product_params)
     if @product.save!
-      ApplicationMailer.create_product(@product).deliver_now
-      redirect_to @product
+      # ApplicationMailer.create_product(@product).deliver_now
+      redirect_to @product, notice: I18n.t('product.alert.create.success')
     else
+      flash[:alert] = I18n.t('product.alert.create.error')
       render :new
     end
   end
 
   def update
-    @product.update!(@product_params)
-    redirect_to @product
+    if @product.update!(@product_params)
+      redirect_to @product, notice: I18n.t('product.alert.update.success')
+    else
+      flash[:alert] = I18n.t('product.alert.update.error')
+      render :new
+    end
   end
 
   def edit
@@ -35,7 +40,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     redirect_to products_path
-    flash[:notice] = "Delete success!"
+    flash[:notice] = I18n.t('product.alert.delete.success')
   end
 
 

@@ -11,15 +11,9 @@
   <body>
     <div class='container'>
       <% flash.each do |key, value| %>
-        <% if key=='alert' %>
-          <div class="alert alert-danger">
-            <strong><%= key %>!</strong> <%= value %>
-          </div>
-        <% else %>
-          <div class="alert alert-<%= key %>">
-            <strong><%= key %>!</strong> <%= value %>
-          </div>
-        <% end %>
+        <div class="alert alert-<%= key %>">
+          <%= value %>
+        </div>
       <% end %>
       <%= yield %>
     </div>
