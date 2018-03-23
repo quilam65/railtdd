@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
-  before_save :strip_html_from_description, :set_all_title_lower_case, :title_is_shorter_than_description
+  before_save :strip_html_from_description
+  before_save :set_all_title_lower_case
+  before_save :title_is_shorter_than_description
 
   validates :title ,:description, presence: true
   validates :price, numericality: { greater_than: 0 }

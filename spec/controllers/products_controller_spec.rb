@@ -67,7 +67,7 @@ RSpec.describe ProductsController, type: :controller do
     it "product to be updated" do
       product_params = { :title => "new title", :description => "new description" }
       put :update, params: { :id => product.id, :product => product_params }
-      expect(assigns(:product).title).to eq(product_params(:title))
+      expect(assigns(:product).title).to eq('new title')
       response.should redirect_to assigns(:product)
     end
   end

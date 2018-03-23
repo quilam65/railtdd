@@ -7,6 +7,14 @@ RailsAdmin.config do |config|
     warden.authenticate! scope: :user
   end
   config.current_user_method(&:current_user)
+  config.model 'User' do
+    list do
+      field :email
+      field :reset_password_sent_at
+      field :current_sign_in_at
+      field :created_at
+    end
+  end
 
   ## == Cancan ==
   # config.authorize_with :cancan

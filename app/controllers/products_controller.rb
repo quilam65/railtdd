@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :destroy, :update, :edit]
   before_action :assign_params, only: [:create, :update]
+  before_action :authenticate_user!, only: [:edit, :create, :update]
   def index
     @products = Product.order('id desc').all
   end
@@ -15,7 +16,8 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(@product_params)
-    if @product.save
+    if @product.save!
+      ApplicationMailer.create_product(@product).deliver_now
       redirect_to @product
     else
       render :new
