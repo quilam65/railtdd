@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :destroy, :update, :edit]
   before_action :assign_params, only: [:create, :update]
-  before_action :authenticate_user!, only: [:edit, :create]
+  before_action :authenticate_user!, only: [:edit, :new, :destroy]
   def index
     @products = Product.order('id desc').all
   end
@@ -16,8 +16,10 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(@product_params)
-    if @product.save!
-      ApplicationMailer.create_product(@product).deliver_now
+
+    if @product.save
+      # Tat ham gui mail
+      # ApplicationMailer.create_product(@product).deliver_now
       redirect_to @product, notice: I18n.t('product.alert.create.success')
     else
       flash[:alert] = I18n.t('product.alert.create.error')
@@ -40,7 +42,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     redirect_to products_path
-    flash[:notice] = I18n.t('product.alert.delete.success')
+    flash[:notice] = I18n.t('product.alert.destroy.success')
   end
 
 

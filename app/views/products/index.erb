@@ -2,7 +2,8 @@
 <% @products.each do |f| %>
 <div class="card" style="width: 18rem;">
   <p>
-    <%= link_to(f.title,edit_product_path(f.id)) %>
+    <%= link_to(f.title,product_path(f.id)) %>
+    <%= link_to('Edit',edit_product_path(f.id)) %>
     <%= link_to(I18n.t('product.index.delete'),product_path(f.id), method: :delete, data: {confirm: I18n.t('product.index.confirm')}) %>
   </p>
 <% end %>

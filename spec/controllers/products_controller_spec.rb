@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe ProductsController, type: :controller do
   # GET #####
   let(:product) { create(:product) }
@@ -13,6 +12,7 @@ RSpec.describe ProductsController, type: :controller do
   end
 
   describe '#new' do
+    login_admin
     it 'create a product' do
       get :new
       expect(assigns(:product)).to be_a_new(Product)
@@ -27,9 +27,10 @@ RSpec.describe ProductsController, type: :controller do
   end
 
   describe '#edit' do
+    login_admin
     it "edit product" do
       get :edit, params: { id: product.id }
-      expect(assigns(:product)).to eq product
+      expect(assigns(:product).id).to eq product.id
     end
   end
 
@@ -53,6 +54,7 @@ RSpec.describe ProductsController, type: :controller do
   end
 
   describe '#delete' do
+    login_admin
     let!(:product) { create(:product) }
     it ' delete a product' do
       expect{
@@ -64,6 +66,7 @@ RSpec.describe ProductsController, type: :controller do
 
   ### PUT ###
   describe "PUT 'update/:id'" do
+    login_admin
     it "product to be updated" do
       product_params = { :title => "new title", :description => "new description" }
       put :update, params: { :id => product.id, :product => product_params }
