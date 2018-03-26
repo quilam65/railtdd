@@ -5,6 +5,8 @@ class ApplicationMailer < ActionMailer::Base
   def create_product product
     @product = product
     @url  = product_url(@product)
-    mail(to: User.first.email, subject: 'Welcome to My Awesome Site')
+    User.all.each do |u|
+      mail(to: u.email, subject: 'Create product')
+    end
   end
 end
